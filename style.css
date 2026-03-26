@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  --mc-grass: #5B8731;
+  --mc-dirt: #866043;
+  --mc-stone: #7D7D7D;
+  --mc-bg: #1e1e24;
+  --mc-text-default: #FFFFFF;
+  --mc-btn: #aaaaaa;
+  --mc-btn-border-light: #ffffff;
+  --mc-btn-border-dark: #555555;
+  --mc-btn-bg: #c6c6c6;
+  --mc-hover: #e0e0e0;
+  
+  --mc-diamond: #55FFFF;
+  --mc-gold: #FFAA00;
+  --mc-iron: #F0F0F0;
+  
+  --mc-shadow: 4px 4px 0px rgba(0, 0, 0, 0.75);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: var(--mc-bg);
+  color: var(--mc-text-default);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    linear-gradient(rgba(30, 30, 36, 0.8), rgba(30, 30, 36, 0.8)),
+    url('https://wallpapers.com/images/hd/minecraft-diamond-ore-block-6s59s5e7g5r5t7t.jpg'); /* fallback bg */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, a, button {
+  font-family: 'Press Start 2P', cursive;
+}
+
+p {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 0px #000;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotateX(-20deg) rotateY(45deg); }
+  50% { transform: translateY(-20px) rotateX(-20deg) rotateY(65deg); }
+  100% { transform: translateY(0px) rotateX(-20deg) rotateY(45deg); }
+}
+
+@keyframes titlePulse {
+  0% { text-shadow: 0 0 10px #55FFFF, 2px 2px 0px #000; }
+  50% { text-shadow: 0 0 30px #55FFFF, 2px 2px 0px #000; }
+  100% { text-shadow: 0 0 10px #55FFFF, 2px 2px 0px #000; }
+}
+
+/* Particles Layer */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Typography Colors */
+.mc-text.diamond { color: var(--mc-diamond); text-shadow: 2px 2px 0px #000; }
+.mc-text.gold { color: var(--mc-gold); text-shadow: 2px 2px 0px #000; }
+.mc-text.iron { color: var(--mc-iron); text-shadow: 2px 2px 0px #000; }
+.highlight { 
+  color: var(--mc-diamond); 
+  animation: titlePulse 2s infinite; 
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 4px solid var(--mc-dirt);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+/* Minecraft Button Style */
+.mc-btn {
+  display: inline-block;
+  background-color: var(--mc-btn-bg);
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border: 4px solid var(--mc-btn-bg);
+  border-top-color: var(--mc-btn-border-light);
+  border-left-color: var(--mc-btn-border-light);
+  border-bottom-color: var(--mc-btn-border-dark);
+  border-right-color: var(--mc-btn-border-dark);
+  cursor: pointer;
+  transition: all 0.1s;
+  text-transform: uppercase;
+}
+
+.mc-btn:hover {
+  background-color: var(--mc-hover);
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-bottom-color: #666;
+  border-right-color: #666;
+  outline: 2px solid white;
+}
+
+.mc-btn:active {
+  border-top-color: var(--mc-btn-border-dark);
+  border-left-color: var(--mc-btn-border-dark);
+  border-bottom-color: var(--mc-btn-border-light);
+  border-right-color: var(--mc-btn-border-light);
+}
+
+.mc-btn.primary {
+  background-color: var(--mc-grass);
+  color: white;
+  border-top-color: #9cd45e;
+  border-left-color: #9cd45e;
+  border-bottom-color: #314d18;
+  border-right-color: #314d18;
+}
+
+.mc-btn.primary:hover {
+  background-color: #6ea13d;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  position: relative;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 0px #000;
+  line-height: 1.4;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  color: #cfcfcf;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* 3D Cube */
+.cube-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  z-index: 2;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cube:active {
+  transform: scale(0.9) rotateX(-20deg) rotateY(45deg);
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  image-rendering: pixelated;
+  border: 1px solid rgba(0,0,0,0.5); /* adds to blocky feel */
+}
+
+/* Grass Block Textures */
+.face.top {
+  background-color: var(--mc-grass);
+  transform: rotateX(90deg) translateZ(100px);
+  /* Top grass texture */
+  background-image: repeating-linear-gradient(
+    45deg,
+    #5B8731,
+    #5B8731 10px,
+    #6EA13D 10px,
+    #6EA13D 20px
+  );
+}
+
+.face.bottom {
+  background-color: var(--mc-dirt);
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.face.front {
+  background-color: var(--mc-dirt);
+  transform: translateZ(100px);
+}
+
+.face.back {
+  background-color: var(--mc-dirt);
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.face.left {
+  background-color: var(--mc-dirt);
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.face.right {
+  background-color: var(--mc-dirt);
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+/* Pseudo element for grass overlap on sides */
+.face.front::before, .face.back::before, .face.left::before, .face.right::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40px;
+  background-color: var(--mc-grass);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 80% 80%, 60% 100%, 40% 70%, 20% 90%, 0 100%);
+}
+
+/* Sections */
+.section {
+  padding: 5rem 10%;
+  background-color: rgba(30,30,36, 0.9);
+  border-top: 4px solid var(--mc-stone);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  text-shadow: 3px 3px 0px #000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Video Cards */
+.card {
+  background: var(--mc-stone);
+  padding: 10px;
+  border: 4px solid;
+  border-top-color: #9a9a9a;
+  border-left-color: #9a9a9a;
+  border-bottom-color: #555555;
+  border-right-color: #555555;
+  box-shadow: var(--mc-shadow);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--mc-diamond);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  background-color: #000;
+  margin-bottom: 15px;
+  border: 2px solid #555;
+  background-size: cover;
+  background-position: center;
+}
+
+.vid-1 { background-image: url('https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80'); }
+.vid-2 { background-image: url('https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80'); }
+.vid-3 { background-image: url('https://images.unsplash.com/photo-1610056025022-29eeec5a4843?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80'); }
+
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--mc-gold);
+  text-shadow: 2px 2px 0px #000;
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+  .title { font-size: 1.8rem; }
+  .cta-buttons { justify-content: center; }
+  .nav-links { display: none; }
+}

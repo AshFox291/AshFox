@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AshFox's Fan Community</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Pixel font for Minecraft aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <span class="mc-text diamond">Ash</span><span class="mc-text gold">Fox</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="mc-btn">Home</a></li>
+            <li><a href="#videos" class="mc-btn">Videos</a></li>
+            <li><a href="#discord" class="mc-btn">Discord</a></li>
+            <li><a href="#gallery" class="mc-btn">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="title">Welcome to <br><span class="highlight">AshFox's Fan Community</span></h1>
+            <p class="subtitle">The ultimate hub for builds, survival tips, and epic adventures!</p>
+            <div class="cta-buttons">
+                <button class="mc-btn primary" onclick="playClick()">Join the Realm</button>
+                <button class="mc-btn secondary" onclick="playClick()">Watch Latest</button>
+            </div>
+        </div>
+        
+        <!-- Interactive 3D CSS Block -->
+        <div class="cube-container">
+            <div class="cube" id="mc-cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="videos" class="section">
+        <h2 class="section-title">Latest <span class="mc-text iron">Adventures</span></h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img vid-1"></div>
+                <h3 class="card-title">100 Days in Hardcore</h3>
+                <p>Surviving the elements and building a mega base!</p>
+            </div>
+            <div class="card">
+                <div class="card-img vid-2"></div>
+                <h3 class="card-title">Redstone Calculator</h3>
+                <p>Building a working computer inside Minecraft.</p>
+            </div>
+            <div class="card">
+                <div class="card-img vid-3"></div>
+                <h3 class="card-title">Ender Dragon Speedrun</h3>
+                <p>Beating the game in under 20 minutes blindfolded?!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS Particles Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
